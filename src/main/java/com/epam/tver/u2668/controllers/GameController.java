@@ -28,4 +28,9 @@ public class GameController {
     public String persistenceStatus() {
         return "main";
     }
+    
+    @RequestMapping(value = "/screen")
+    public String getScreen() {
+        return "epam_screen";
+    }    
 }
