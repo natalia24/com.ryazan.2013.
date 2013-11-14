@@ -91,11 +91,15 @@ body {
 	-webkit-backface-visibility: hidden;
 }
 
-.slogan {
+.slogan, .slogan1 {
 	padding-top: 60px;
 	color: #333 !important;
 	font: normal 32px Palatino, Georgia, serif !important;
 	line-height: 100% !important;
+}
+
+.slogan1 {
+	color: #069 !important;
 }
 
 #shape.backfaces .plane {
