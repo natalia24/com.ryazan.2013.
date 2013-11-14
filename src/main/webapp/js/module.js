@@ -69,7 +69,7 @@ $(function() {
 
     $.ajax({
         type: 'GET',
-        url: '/api/',
+        url: 'api/',
         success: function(data) {
             var employees = JSON.parse(data);
             console.log(employees);
