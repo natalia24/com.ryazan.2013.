@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+header, nav, section, article, aside, footer {
+    display: block;
+}
+
+body {
+    font: 12px/18px Arial, Tahoma, Verdana, sans-serif;
+    height: 100%;
+    background-image: url("images/45degreee_fabric.png");
+}
+
+img {
+    border: none;
+}
+
+#wrapper {
+    margin: 0 auto;
+    min-height: 100%;
+    height: auto !important;
+}
+
+#header {
+    background-image: url("images/darkdenim3.png");
+    height: 100px;
+    width: 100%;
+}
+
+/* Middle
+-----------------------------------------------------------------------------*/
+#middle {
+    width: 100%;
+    padding: 0 0 100px;
+    height: 1%;
+    position: relative;
+}
+
+#middle:after {
+    content: '.';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}
+
+#container {
+    width: 100%;
+    float: left;
+    overflow: hidden;
+}
+
+#footer {
+    z-index: 30;
+    margin: -100px auto 0;
+    background-image: url("images/darkdenim3.png");
+    height: 100px;
+    position: relative;
+}
+
+.red_line {
+    width: 100%;
+    background: red;
+    height: 3px;
+    z-index: 100;
+}
+
+.main {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+}
+
+#iZabara {
+    width: 170px;
+    height: 70px;
+    background-image: url("images/iZabara.png");
+    position: absolute;
+    float: left;
+    top: 10px;
+    right: 10px;
+}
+
+#logo {
+    min-height: 100%;
+    text-align: center;
+}
+
+#logo-header-text {
+    font-size: 24pt;
+    color: #222;
+    text-shadow: 0px 2px 3px #555;
+}
+
+p {
+    margin: 0;
+    padding: 4px;
+}
