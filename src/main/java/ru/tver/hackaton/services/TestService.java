@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 import ru.tver.hackaton.beans.TestBean;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,20 +19,24 @@ import java.util.List;
 @Component("testService")
 public class TestService {
 
-    List<TestBean> beans = null;
+    private List<TestBean> beans = null;
+    private Random random = new Random(new Date().getTime());
 
     public TestService() {
         beans = new ArrayList<TestBean>();
-        int size = 100;
+        generate();
+    }
+
+    public void generate(){
+        beans.clear();
+        int size = 10;
         for (int i = 0; i < size; i++) {
-            beans.add(new TestBean(i, "message" + i));
+            beans.add(new TestBean(i, "message" + random.nextInt()));
         }
     }
 
     public List<TestBean> getBeans() {
-        if (beans.size() != 0) {
-            beans.remove(0);
-        }
+        generate();
         return beans;
     }
 }

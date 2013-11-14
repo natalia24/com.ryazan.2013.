@@ -15,7 +15,7 @@ $(function () {
 
 var Game = Backbone.Model.extend({
     initialize: function () {
-        console.log("init new Game{" + this.get("id") + ", " + this.get("message") + "}");
+        //some code
     },
     defaults: {
         id: -1,
@@ -25,7 +25,7 @@ var Game = Backbone.Model.extend({
 
 var GamesCollection = Backbone.Collection.extend({
     model: Game,
-    url: 'http://localhost:8083/game/test'
+    url: 'http://localhost:8066/game/test'
 });
 
 var PersonListView = Backbone.View.extend({
