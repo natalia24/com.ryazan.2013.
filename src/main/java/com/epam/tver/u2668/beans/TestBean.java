@@ -1,14 +1,13 @@
-package ru.tver.hackaton.beans;
+package com.epam.tver.u2668.beans;
 
 import java.io.Serializable;
 
 public class TestBean implements Serializable{
 
-    int id;
-    String message;
+    private int id;
+    private String message;
 
-    public TestBean() {
-    }
+    public TestBean() {}
 
     public TestBean(int id, String message) {
         this.id = id;
