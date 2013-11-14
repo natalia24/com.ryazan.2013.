@@ -1,25 +1,22 @@
 <!DOCTYPE html>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page import="ru.tver.hackaton.*"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
     <title>webDesigner</title>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="../resources/styles/jquery-ui-1.8.19.custom.css"/>
-    <link rel="stylesheet" type="text/css" href="../resources/styles/style.css"/>
-    <link rel="stylesheet" type="text/css" href="../resources/styles/colorpicker.css"/>
-    <link rel="stylesheet" type="text/css" href="../resources/styles/flashlight.css"/>
-    <link rel="stylesheet" type="text/css" href="../resources/styles/text.css"/>
+    <link rel="stylesheet" type="text/css" href="../../styles/jquery-ui-1.8.19.custom.css"/>
+    <link rel="stylesheet" type="text/css" href="../../styles/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../../styles/colorpicker.css"/>
+    <link rel="stylesheet" type="text/css" href="../../styles/flashlight.css"/>
+    <link rel="stylesheet" type="text/css" href="../../styles/text.css"/>
 </head>
 
-<script src="../resources/script/jquery.js"></script>
-<script src="../resources/script/underscore.js"></script>
-<script src="../resources/script/backbone.js"></script>
-<script src="../resources/script/utils.js"></script>
-<script src="../resources/script/flashlight.js"></script>
-<script src="../resources/script/main.js"></script>
+<script src="../../js/jquery.js"></script>
+<script src="../../js/underscore.js"></script>
+<script src="../../js/backbone.js"></script>
+<script src="../../js/utils.js"></script>
+<script src="../../js/flashlight.js"></script>
+<script src="../../js/main.js"></script>
 <body>
 <div class="main">
     <header id="header">

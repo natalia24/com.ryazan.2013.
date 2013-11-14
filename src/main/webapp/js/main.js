@@ -25,7 +25,7 @@ var Game = Backbone.Model.extend({
 
 var GamesCollection = Backbone.Collection.extend({
     model: Game,
-    url: 'http://localhost:8066/game/test'
+    url: 'test'
 });
 
 var PersonListView = Backbone.View.extend({
