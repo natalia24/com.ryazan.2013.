@@ -34,7 +34,7 @@ $(function() {
                 reader.onload = function() {
                     var li = $('<li>').appendTo($list);
                     var img = $('<img>').attr('src', reader.result).addClass('image').appendTo(li);
-                }
+                };
                 reader.readAsDataURL(file);
             });
 
@@ -47,8 +47,8 @@ $(function() {
 
     function showEmployees(data) {
         var table = $('<table>').addClass('table table-hover').append($('<tr>')
-            .append($('<th>').text('Employee ID'))
             .append($('<th>').text('№'))
+            .append($('<th>').text('Employee ID'))
             .append($('<th>').text('Full name'))
             .append($('<th>').text('Email'))
             .append($('<th>').text('Hired')));
