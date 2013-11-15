@@ -1,7 +1,6 @@
 package com.epam.tver.u2668.upsa.apibeans;
 
 import java.util.List;
-import java.util.Map;
 
 public class TokenResponse {
 
@@ -10,7 +9,7 @@ public class TokenResponse {
     private String tokenType;
     private String refreshToken;
     private List<String> scope;
-    private Map<String, Object> additionalInformation;
+    private AdditionalInformation additionalInformation;
     private Integer expiresIn;
     private Boolean expired;
 
@@ -54,11 +53,11 @@ public class TokenResponse {
         this.scope = scope;
     }
 
-    public Map<String, Object> getAdditionalInformation() {
+    public AdditionalInformation getAdditionalInformation() {
         return additionalInformation;
     }
 
-    public void setAdditionalInformation(Map<String, Object> additionalInformation) {
+    public void setAdditionalInformation(AdditionalInformation additionalInformation) {
         this.additionalInformation = additionalInformation;
     }
 

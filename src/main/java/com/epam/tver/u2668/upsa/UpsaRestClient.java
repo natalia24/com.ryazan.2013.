@@ -8,6 +8,7 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
 
+// https://upsa.epam.com/workload/rest/v3/api/api.html
 @Repository
 public class UpsaRestClient {
 

@@ -21,9 +21,6 @@
                 <bean class="com.epam.tver.u2668.upsa.AuthInterceptor"/>
             </list>
         </property>
-        <property name="errorHandler">
-            <bean class="com.epam.tver.u2668.upsa.ErrorHandler"/>
-        </property>
     </bean>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

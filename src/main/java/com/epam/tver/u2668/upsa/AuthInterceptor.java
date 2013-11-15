@@ -24,7 +24,7 @@ public class AuthInterceptor implements ClientHttpRequestInterceptor {
             request.getHeaders().add("Authorization", "Bearer " + context.getToken().getValue());
         }
         ClientHttpResponse response = execution.execute(request, body);
-        if (response.getStatusCode() == HttpStatus.UNAUTHORIZED) {
+        if (!request.getURI().getPath().endsWith("oauth/token") && response.getStatusCode() == HttpStatus.UNAUTHORIZED) {
             context.invalidate();
             request.getHeaders().set("Authorization", "Bearer " + context.getToken().getValue());
             return execution.execute(request, body);
