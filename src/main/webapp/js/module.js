@@ -76,4 +76,8 @@ $(function() {
             showEmployees(employees);
         }
     });
+    
+    $.get('api/userinfo', function(data) {
+        
+    });
 });

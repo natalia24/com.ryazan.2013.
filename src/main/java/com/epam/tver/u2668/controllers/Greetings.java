@@ -1,8 +1,7 @@
 package com.epam.tver.u2668.controllers;
 
-import com.epam.tver.u2668.upsa.AuthContext;
+import com.epam.tver.u2668.beans.UserContext;
 import com.epam.tver.u2668.upsa.UpsaRestClient;
-import com.epam.tver.u2668.upsa.apibeans.TokenResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.logging.Logger;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.client.HttpClientErrorException;
 
 @Controller
 @RequestMapping("/")
@@ -23,7 +21,7 @@ public class Greetings {
     private UpsaRestClient restClient;
 
     @Autowired
-    private AuthContext authContext;
+    private UserContext userContext;
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
@@ -33,7 +31,9 @@ public class Greetings {
     
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public TokenResponse login(@RequestParam String email, @RequestParam String password) {
-        return restClient.getToken(email, password, true);
+    public void login(@RequestParam String email, @RequestParam String password) {
+        if (!userContext.isAuthorized()) {
+            userContext.setToken(restClient.getToken(email, password, true));
+        }
     }
 }
