@@ -11,7 +11,6 @@ var CanvasView = Backbone.View.extend({
     },
 
     render: function () {
-        console.log("render canvas view");
         this.model.forEach(function(user){
             CanvasManager.drawUser(user);
         });
