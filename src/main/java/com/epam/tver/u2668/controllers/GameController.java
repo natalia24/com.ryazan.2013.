@@ -40,4 +40,9 @@ public class GameController {
     public void startGame() {
         gameInfo.initGame();
     }
+
+    @RequestMapping(value = "/test1", method = RequestMethod.GET)
+    public String testgame() {
+        return "index";
+    }
 }
