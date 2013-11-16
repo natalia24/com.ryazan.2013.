@@ -1,9 +1,7 @@
 package com.epam.tver.u2668.beans;
 
-import com.epam.tver.u2668.upsa.apibeans.Skill;
 import com.epam.tver.u2668.upsa.apibeans.TokenResponse;
 import java.io.Serializable;
-import java.util.List;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
@@ -14,25 +12,16 @@ import org.springframework.web.context.WebApplicationContext;
 public class UserContext implements Serializable {
 
     private boolean authorized = false;
-    private TokenResponse token;
-
-    private UserInfo info;
+    private final UserInfo info = new UserInfo();
     
-    private List<Skill> requestedTeam;
-
     public boolean isAuthorized() {
         return authorized;
     }
 
-    public TokenResponse getToken() {
-        return token;
-    }
-
     public void setToken(TokenResponse token) {
-        this.token = token;
+        this.info.setToken(token);
         if (token != null) {
             this.authorized = true;
-            this.info = new UserInfo();
             this.info.setName(token.getAdditionalInformation().getUserBean().getFullname());
             this.info.setId(token.getAdditionalInformation().getUserBean().getPmcId());
         }
@@ -41,13 +30,4 @@ public class UserContext implements Serializable {
     public UserInfo getInfo() {
         return info;
     }
-    
-    public void setRequestedTeam(List<Skill> requestedTeam) {
-        this.requestedTeam = requestedTeam;
-    }
-
-    public List<Skill> getRequestedTeam() {
-        return requestedTeam;
-    }    
-    
 }

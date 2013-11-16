@@ -24,7 +24,7 @@
                             <c:forEach var="user" items="${loggedIn}">
                             <tr>
                                 <td>                          
-                                    <input type="text" readonly="true" id="loginField" value="${user.additionalInformation.userBean.fullname}"></div>
+                                    <input type="text" readonly="true" id="loginField" value="${user.token.additionalInformation.userBean.fullname}"></div>
                                 </td>
                                 <td>
                                     <button type="button" class="btn btn-success" >Я готов!</button>

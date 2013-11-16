@@ -7,6 +7,8 @@ import com.epam.tver.u2668.upsa.UpsaRestClient;
 import com.epam.tver.u2668.upsa.apibeans.Employee;
 import com.epam.tver.u2668.upsa.apibeans.Skill;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,20 +36,23 @@ public class MainLogic {
         Employee[] employees = upsaRestClient.getEmployees("tver");
         List<CharacterInfo> characterList = new ArrayList<>();
         Map<String, Skill[]> skillById = new HashMap<>();
-        List<Skill> requestedTeam = new ArrayList<Skill>();
+        List<Skill> allSkills = new ArrayList<>();
         for (int i = 0; (i < employees.length) && (i < 7); i++) {
             CharacterInfo info = new CharacterInfo();
             info.setId(employees[i].getEmployeeId());
             info.setName(employees[i].getFullName());
             Skill[] skills = upsaRestClient.getEmployeeSkills(info.getId());
+            allSkills.addAll(Arrays.asList(skills));
             skillById.put(employees[i].getEmployeeId(), skills);
-            requestedTeam.add(skills[0]);
             info.setX(random.nextInt(800));
             info.setY(random.nextInt(600));
             characterList.add(info);
         }        
         gameInfo.setCharacterList(characterList);
-        userCtx.setRequestedTeam(requestedTeam);
+
+//        Collections.shuffle(allSkills);
+//        List<Skill> requestedTeam = new ArrayList<>();
+//        userCtx.setRequestedTeam(requestedTeam);
     }
 
     public void startGame() {
