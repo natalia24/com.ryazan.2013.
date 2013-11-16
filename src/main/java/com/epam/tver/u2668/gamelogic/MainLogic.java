@@ -24,10 +24,10 @@ public class MainLogic {
     private UpsaRestClient upsaRestClient;
 
     @Autowired
-    private UserContext userCtx;
+    private GameInfo gameInfo;
 
     @Autowired
-    private GameInfo gameInfo;
+    private UserContext userContext;
 
     private final Random random = new Random();
 
@@ -47,8 +47,8 @@ public class MainLogic {
             allSkills.addAll(Arrays.asList(skills));
             skillById.put(employees[i].getEmployeeId(), skills);
             if (skills != null && skills.length > 0) {
-                requestedTeam.add(skills[(int) (Math.random() * skills.length)]);            
-            }          
+                requestedTeam.add(skills[(int) (Math.random() * skills.length)]);
+            }
             info.setX(random.nextInt(800));
             info.setY(random.nextInt(600));
             characterList.add(info);
@@ -56,9 +56,30 @@ public class MainLogic {
 
         for (UserInfo info : gameInfo.getLoggedUsers()) {
             Collections.shuffle(allSkills);
-            info.setRequestedTeam(allSkills.subList(0, 5));
+            List<Skill> subList = new ArrayList<>(allSkills.subList(0, 5));
+            info.setRequestedTeam(subList);
+
+            CharacterInfo uinfo = new CharacterInfo();
+            uinfo.setId(info.getId());
+            uinfo.setName(info.getName());
+            uinfo.setX(random.nextInt(800));
+            uinfo.setY(random.nextInt(600));
+            uinfo.setNewX(uinfo.getX());
+            uinfo.setNewY(uinfo.getY());
+            uinfo.setPm(true);
+            characterList.add(uinfo);
         }
         gameInfo.setCharacterList(characterList);
+    }
+
+    public void goTo(int x, int y) {
+        for (CharacterInfo info : gameInfo.getCaracterList()) {
+            if (info.getId().equals(userContext.getInfo().getId())) {
+                info.setNewX(x);
+                info.setNewY(y);
+                break;
+            }
+        }
     }
 
     public void startGame() {
@@ -79,13 +100,32 @@ public class MainLogic {
 
     public void step() {
         for (CharacterInfo info : gameInfo.getCaracterList()) {
-            info.setX(info.getX() + random.nextInt(20) - 10);
-            info.setY(info.getY() + random.nextInt(20) - 10);
-            if (info.getX() < 0) {
-                info.setX(0);
-            }
-            if (info.getY() < 0) {
-                info.setY(0);
+            if (info.isPm()) {
+                int xx = Math.abs(info.getNewX() - info.getX());
+                int yy = Math.abs(info.getNewY() - info.getY());
+                
+                if (xx > 20) {
+                    int dirx = (info.getNewX() - info.getX()) / xx;
+                    info.setX(info.getX() + 15 * dirx);
+                } else {
+                    info.setNewX(info.getX());
+                }
+                if (yy > 20) {
+                    int diry = (info.getNewY() - info.getY()) / yy;
+                    info.setY(info.getY() + 15 * diry);
+                } else {
+                    info.setNewY(info.getY());
+                }
+                
+            } else {
+                info.setX(info.getX() + random.nextInt(20) - 10);
+                info.setY(info.getY() + random.nextInt(20) - 10);
+                if (info.getX() < 0) {
+                    info.setX(0);
+                }
+                if (info.getY() < 0) {
+                    info.setY(0);
+                }
             }
         }
     }

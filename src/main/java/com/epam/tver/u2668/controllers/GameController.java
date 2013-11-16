@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -30,6 +31,12 @@ public class GameController {
     @ResponseBody
     public List<CharacterInfo> getCoord() {
         return gameInfo.getCaracterList();
+    }
+    
+    @RequestMapping(value = "/coord", method = RequestMethod.POST)
+    @ResponseBody
+    public void setCoord(@RequestParam int x, @RequestParam int y) {
+        logic.goTo(x, y);
     }
 
     @RequestMapping(value = "/start", method = RequestMethod.GET)
