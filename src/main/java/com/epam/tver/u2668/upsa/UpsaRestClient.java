@@ -1,5 +1,6 @@
 package com.epam.tver.u2668.upsa;
 
+import com.epam.tver.u2668.upsa.apibeans.Employee;
 import com.epam.tver.u2668.upsa.apibeans.Skill;
 import com.epam.tver.u2668.upsa.apibeans.TokenResponse;
 import org.apache.commons.codec.binary.Base64;
@@ -37,8 +38,8 @@ public class UpsaRestClient {
         return restTemplate.getForObject(baseURL + "v3/employees/{employeeId}/location", String.class, employeeId);
     }
 
-    public String getEmployees(String city) {
-        return restTemplate.getForObject(baseURL + "v3/employees?cities={city}&onlyActive=true", String.class, city);
+    public Employee[] getEmployees(String city) {
+        return restTemplate.getForObject(baseURL + "v3/employees?cities={city}&onlyActive=true", Employee[].class, city);
     }
     
     public Skill[] getEmployeeSkills(String employeeId) {
