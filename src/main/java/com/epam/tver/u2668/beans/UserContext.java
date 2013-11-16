@@ -14,6 +14,8 @@ public class UserContext implements Serializable {
     private boolean authorized = false;
     private TokenResponse token;
 
+    private UserInfo info;
+
     public boolean isAuthorized() {
         return authorized;
     }
@@ -26,7 +28,13 @@ public class UserContext implements Serializable {
         this.token = token;
         if (token != null) {
             this.authorized = true;
+            this.info = new UserInfo();
+            this.info.setName(token.getAdditionalInformation().getUserBean().getFullname());
         }
+    }
+
+    public UserInfo getInfo() {
+        return info;
     }
 
 }
