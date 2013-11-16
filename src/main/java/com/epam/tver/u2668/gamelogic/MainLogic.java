@@ -41,13 +41,15 @@ public class MainLogic {
             info.setName(employees[i].getFullName());
             Skill[] skills = upsaRestClient.getEmployeeSkills(info.getId());
             skillById.put(employees[i].getEmployeeId(), skills);
-            requestedTeam.add(skills[0]);
+            if (skills != null && skills.length > 0) {
+                requestedTeam.add(skills[0]);
+            }            
             info.setX(random.nextInt(800));
             info.setY(random.nextInt(600));
             characterList.add(info);
         }        
         gameInfo.setCharacterList(characterList);
-        userCtx.setRequestedTeam(requestedTeam);
+        userCtx.setRequestedTeam(requestedTeam.subList(0, requestedTeam.size() > 10 ? 10 : requestedTeam.size()));
     }
 
     public void startGame() {
