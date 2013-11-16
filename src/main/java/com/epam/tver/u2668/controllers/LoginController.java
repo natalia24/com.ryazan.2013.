@@ -1,11 +1,13 @@
 package com.epam.tver.u2668.controllers;
 
+import com.epam.tver.u2668.beans.GameInfo;
 import com.epam.tver.u2668.beans.UserContext;
 import com.epam.tver.u2668.upsa.UpsaRestClient;
 import com.epam.tver.u2668.upsa.apibeans.TokenResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -21,9 +23,12 @@ public class LoginController {
     @Autowired
     private UpsaRestClient upsaRestClient;
     
+    @Autowired
+    private GameInfo gameInfo;
+    
     @RequestMapping(value = "/start")
-    public String persistenceStatus() {
-        return "main";
+    public ModelAndView persistenceStatus() {
+        return new ModelAndView("start", "loggedIn", gameInfo.getLoggedUsers());
     }
     
     @RequestMapping(value = "/screen")
@@ -37,10 +42,11 @@ public class LoginController {
     }
     
     @RequestMapping(value = "/gologin") 
-    public String goLogin(String email, String password) {
+    public ModelAndView goLogin(String email, String password) {
         TokenResponse token = upsaRestClient.getToken(email, password, true);
         userContext.setToken(token);
-        return "start";
+        gameInfo.addLoggedUser(token);
+        return new ModelAndView("redirect:start");
     }
     
 }

@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,25 +18,20 @@
                     <div class="span4">  
                         <table id="members" class="table table-bordered">
                             <tr>
-                                <th align="center">
-                                    Логин участника 
-                                </th>
-                                <th align="center">
-                                    Статус
-                                </th>
+                                <th align="center">Логин участника</th>
+                                <th align="center">Статус</th>
                             </tr>
-
+                            <c:forEach var="user" items="${loggedIn}">
                             <tr>
                                 <td>                          
-                                    <input type="text" readonly="true" id="loginField"></div>
+                                    <input type="text" readonly="true" id="loginField" value="${user.additionalInformation.userBean.fullname}"></div>
                                 </td>
                                 <td>
                                     <button type="button" class="btn btn-success" >Я готов!</button>
-
                                 </td>
                             </tr>
+                            </c:forEach>
                         </table>
-
                     </div>      
             </fieldset>
             <div class="span4">     
