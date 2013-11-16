@@ -37,5 +37,6 @@
             <div class="span4">     
             </div>
         </form>
+        <%@include file="epam_screen.jsp" %>
     </body>
 </html>
