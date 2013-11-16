@@ -23,24 +23,4 @@ public class GameController {
         List<TestBean> beans = service.getBeans();
         return beans;
     }
-
-    @RequestMapping(value = "/start")
-    public String persistenceStatus() {
-        return "main";
-    }
-    
-    @RequestMapping(value = "/screen")
-    public String getScreen() {
-        return "epam_screen";
-    }  
-            
-    @RequestMapping(value = "/login_page")
-    public String goLogin() {
-        return "login";
-    }
-    
-    @RequestMapping(value = "/dologin") 
-    public String doLogin() {
-        return "start";
-    }
 }
