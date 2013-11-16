@@ -1,6 +1,7 @@
 package com.epam.tver.u2668.controllers;
 
 import com.epam.tver.u2668.upsa.UpsaRestClient;
+import com.epam.tver.u2668.upsa.apibeans.Skill;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +18,9 @@ public class HomeController {
 
     @RequestMapping(value = "skills", method = RequestMethod.GET)
     @ResponseBody
-    public String skills(@RequestParam String id) {
-        return restClient.getEmployeeSkills(id);
+    public Skill[] skills(@RequestParam String id) {
+        final Skill[] employeeSkills = restClient.getEmployeeSkills(id);
+        return employeeSkills;
     }
 
     @RequestMapping(value = "employees", method = RequestMethod.GET)
