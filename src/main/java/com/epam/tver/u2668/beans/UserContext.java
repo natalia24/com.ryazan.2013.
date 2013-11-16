@@ -30,6 +30,7 @@ public class UserContext implements Serializable {
             this.authorized = true;
             this.info = new UserInfo();
             this.info.setName(token.getAdditionalInformation().getUserBean().getFullname());
+            this.info.setId(token.getAdditionalInformation().getUserBean().getPmcId());
         }
     }
 
