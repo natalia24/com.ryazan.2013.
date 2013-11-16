@@ -13,6 +13,7 @@ public class UserContext implements Serializable {
 
     private boolean authorized = false;
     private TokenResponse token;
+
     private UserInfo info;
 
     public boolean isAuthorized() {
@@ -35,4 +36,5 @@ public class UserContext implements Serializable {
     public UserInfo getInfo() {
         return info;
     }
+
 }
