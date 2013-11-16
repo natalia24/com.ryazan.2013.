@@ -1,0 +1,40 @@
+/* 
+    Document   : main
+    Created on : 16.11.2013, 11:13:13
+    Author     : Наташулька
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+#linearBg {
+    background: #fff;
+    background: -moz-linear-gradient(top, #fffff 15%, #069 70%, #069 51%,#069 50%);
+    background: -webkit-linear-gradient(top, #ffffff 15%,#069 70%,#069 51%,#069 50%);
+    background: -o-linear-gradient(top, #ffffff 15%,#069 70%,#069 51%,#069 50%);
+    background: -ms-linear-gradient(top, #ffffff 15%,#069 70%,#069 51%,#069 50%);
+    background: linear-gradient(top, #ffffff 15%,#069 70%,#069 51%,#069 50%);
+    padding: 510px;
+}
+
+#cent {
+    position:absolute;
+    bottom:50%;
+    left:50%;
+    margin-bottom:-240px; /* this is half the height of your div*/  
+    margin-left:-350px; /*this is half of width of your div*/
+    background-color: #ffffff;
+}
+
+#cent.container {
+    width: 800px !important;
+    height: 600px  !important;
+}
+
+#cent.name {
+    text-align: center;
+    margin: auto;
+}
