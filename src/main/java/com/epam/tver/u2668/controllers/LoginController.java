@@ -45,7 +45,7 @@ public class LoginController {
     public ModelAndView goLogin(String email, String password) {
         TokenResponse token = upsaRestClient.getToken(email, password, true);
         userContext.setToken(token);
-        gameInfo.addLoggedUser(token);
+        gameInfo.addLoggedUser(userContext.getInfo());
         return new ModelAndView("redirect:start");
     }
     

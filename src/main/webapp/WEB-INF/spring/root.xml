@@ -6,4 +6,6 @@
                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:annotation-config/>
+    
+    <bean class="com.epam.tver.u2668.security.SecurityFilter" name="securityFilter"/>
 </beans>

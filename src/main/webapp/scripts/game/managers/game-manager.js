@@ -6,7 +6,10 @@ var GameManager = {
          * автоматически подает сигнал всем вью, которые подписаны на обновление.
          */
         users: null,//для рисовалки
-        userList: null//список тех, кого уже взяли
+        userList: null,//список тех, кого уже взяли
+
+        //предыдущие данные по пользователю
+        oldUsers: null
     },
 
     views: {
@@ -21,7 +24,7 @@ var GameManager = {
     },
 
     settings: {
-        delay: 500 //количество милисекунд между запросами о обновлении с сервером.
+        delay: 300 //количество милисекунд между запросами о обновлении с сервером.
     },
 
     //id пользователя, которым ща играем.
@@ -39,6 +42,7 @@ var GameManager = {
 
         //подписываемся к обновлению с сервером
         setInterval($.proxy(function () {
+            this.models.oldUsers = this.models.users.clone();
             this.models.users.fetch({reset: true});
         },this), this.settings.delay);
     },
@@ -66,6 +70,15 @@ var GameManager = {
         //send
         me.set("x",coordinates.x);
         me.set("y",coordinates.y);
+    },
+
+    getOldUserInfo: function(user) {
+        if (!this.models.oldUsers || this.models.oldUsers.length != this.models.users.length ) {
+            return;
+        }
+        return this.models.oldUsers.findWhere({
+            id: user.get("id")
+        });
     }
 
 };

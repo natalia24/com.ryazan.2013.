@@ -11,7 +11,7 @@ var CanvasView = Backbone.View.extend({
 
     render: function () {
         this.model.forEach(function(user){
-            CanvasManager.drawUser(user);
+            CanvasManager.drawUser(user,GameManager.getOldUserInfo(user));
         });
         CanvasManager.drawInfo("size is " + this.model.length);
         CanvasManager.redraw();

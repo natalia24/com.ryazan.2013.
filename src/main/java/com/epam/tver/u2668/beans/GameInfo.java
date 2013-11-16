@@ -1,7 +1,6 @@
 package com.epam.tver.u2668.beans;
 
 import com.epam.tver.u2668.upsa.apibeans.Skill;
-import com.epam.tver.u2668.upsa.apibeans.TokenResponse;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -13,7 +12,7 @@ public class GameInfo {
 
     private List<CharacterInfo> characterList;
     private Map<String, Skill[]> skillById;
-    private List<TokenResponse> loggedUsers;
+    private List<UserInfo> loggedUsers;
 
     private boolean started = false;
 
@@ -33,14 +32,14 @@ public class GameInfo {
         this.started = started;
     }
 
-    public synchronized void addLoggedUser(TokenResponse response) {
+    public synchronized void addLoggedUser(UserInfo response) {
         if (loggedUsers == null) {
             loggedUsers = new ArrayList<>();
         }
-        Iterator<TokenResponse> iterator = loggedUsers.iterator();
+        Iterator<UserInfo> iterator = loggedUsers.iterator();
         while (iterator.hasNext()) {
-            TokenResponse next = iterator.next();
-            if (next.getAdditionalInformation().getUserBean().getPmcId().equals(response.getAdditionalInformation().getUserBean().getPmcId())) {
+            UserInfo next = iterator.next();
+            if (next.getToken().getAdditionalInformation().getUserBean().getPmcId().equals(response.getToken().getAdditionalInformation().getUserBean().getPmcId())) {
                 iterator.remove();
             }
         }
@@ -48,7 +47,7 @@ public class GameInfo {
         loggedUsers.add(response);
     }
 
-    public List<TokenResponse> getLoggedUsers() {
+    public List<UserInfo> getLoggedUsers() {
         return loggedUsers;
     }
 
