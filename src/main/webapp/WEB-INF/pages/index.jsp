@@ -43,10 +43,13 @@
         </div>
         <div id="team" class="gradient-top-to-bottom" style="margin-top: 30px; margin-left: 15px; background-color: #fff; width: 1000px; height: 200px; float: left">
             <div class="form-group">
-                <label class="control-label" style="margin-left: 25px; color: #069">Requested project teams</label>
-                Project Resource Requests: 
-                <c:forEach var="skill" items="${userCtx.requestedTeam}">                                              
-                            ${skill.skillName} <br> 
+                                <label class="control-label" style="margin-left: 25px; color: #069">Project Resource Requests:</label>
+                 <br><br>
+                <c:forEach var="skill" items="${userCtx.info.requestedTeam}">                                              
+                    <div style="float: left; width: 100px">
+                        <img src="http://miranimashek.com/_ph/100/2/180676411.gif" width="80" height="80"/><br>  
+                        <label class="control-label" style="margin-left: 25px; color: #1CA3FC">${skill.skillName}  </label>
+                    </div>
                 </c:forEach>
             </div>               
         </div>
