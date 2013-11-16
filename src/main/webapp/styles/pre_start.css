@@ -1,0 +1,12 @@
+table#members {
+  border-style: hidden;
+  border: none;
+}
+
+table#members th {
+border: 2px solid white; /* Параметры рамки вокруг ячеек таблицы */
+}
+
+table#members td {
+border: 2px solid white; /* Параметры рамки вокруг ячеек таблицы */
+}
