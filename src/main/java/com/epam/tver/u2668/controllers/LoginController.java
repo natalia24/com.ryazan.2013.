@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.epam.tver.u2668.controllers;
 
 import com.epam.tver.u2668.beans.UserContext;
