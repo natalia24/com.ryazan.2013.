@@ -14,6 +14,6 @@ var UserModel = Backbone.Model.extend({
 
 var UserModelCollection = Backbone.Collection.extend({
     model: UserModel,
-    url: 'http://localhost:8083/game/test'//todo change url
+    url: 'coord'
 });
 
