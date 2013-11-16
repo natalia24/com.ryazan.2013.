@@ -3,6 +3,7 @@ package com.epam.tver.u2668.gamelogic;
 import com.epam.tver.u2668.beans.CharacterInfo;
 import com.epam.tver.u2668.beans.GameInfo;
 import com.epam.tver.u2668.beans.UserContext;
+import com.epam.tver.u2668.beans.UserInfo;
 import com.epam.tver.u2668.upsa.UpsaRestClient;
 import com.epam.tver.u2668.upsa.apibeans.Employee;
 import com.epam.tver.u2668.upsa.apibeans.Skill;
@@ -21,13 +22,13 @@ public class MainLogic {
 
     @Autowired
     private UpsaRestClient upsaRestClient;
-    
+
     @Autowired
     private UserContext userCtx;
 
     @Autowired
     private GameInfo gameInfo;
-    
+
     private final Random random = new Random();
 
     private Thread gameThread;
@@ -47,12 +48,13 @@ public class MainLogic {
             info.setX(random.nextInt(800));
             info.setY(random.nextInt(600));
             characterList.add(info);
-        }        
-        gameInfo.setCharacterList(characterList);
+        }
 
-//        Collections.shuffle(allSkills);
-//        List<Skill> requestedTeam = new ArrayList<>();
-//        userCtx.setRequestedTeam(requestedTeam);
+        for (UserInfo info : gameInfo.getLoggedUsers()) {
+            Collections.shuffle(allSkills);
+            info.setRequestedTeam(allSkills.subList(0, 5));
+        }
+        gameInfo.setCharacterList(characterList);
     }
 
     public void startGame() {
@@ -70,7 +72,7 @@ public class MainLogic {
             gameThread.interrupt();
         }
     }
-    
+
     public void step() {
         for (CharacterInfo info : gameInfo.getCaracterList()) {
             info.setX(info.getX() + random.nextInt(20) - 10);
@@ -87,5 +89,5 @@ public class MainLogic {
     public Thread getGameThread() {
         return gameThread;
     }
-    
+
 }
