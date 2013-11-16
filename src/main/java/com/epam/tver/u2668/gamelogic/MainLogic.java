@@ -33,8 +33,18 @@ public class MainLogic {
 
     private Thread gameThread;
 
+    public boolean testUser(String id, String skill) {
+        Skill[] ss = gameInfo.getSkillById().get(id);
+        for (Skill s : ss) {
+            if (s.getSkillName().equals(skill)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public void initGame() {
-        Employee[] employees = upsaRestClient.getEmployees("tver");
+        Employee[] employees = upsaRestClient.getEmployees("ryazan");
         List<CharacterInfo> characterList = new ArrayList<>();
         Map<String, Skill[]> skillById = new HashMap<>();
         List<Skill> allSkills = new ArrayList<>();

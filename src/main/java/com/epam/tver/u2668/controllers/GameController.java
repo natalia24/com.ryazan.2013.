@@ -51,6 +51,12 @@ public class GameController {
         logic.stopGame();
     }
 
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    @ResponseBody
+    public String test(@RequestParam String id, @RequestParam String skill) {
+        return logic.testUser(id, skill) ? "yes" : "no";
+    }
+    
     @RequestMapping(value = "/test1", method = RequestMethod.GET)
     public ModelAndView testgame() {
         ModelAndView modelAndView = new ModelAndView("index", "userCtx", userCtx);
