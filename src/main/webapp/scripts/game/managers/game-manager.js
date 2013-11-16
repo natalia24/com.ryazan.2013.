@@ -24,18 +24,23 @@ var GameManager = {
         delay: 500 //количество милисекунд между запросами о обновлении с сервером.
     },
 
+    //id пользователя, которым ща играем.
+    meId: null,
+
     init: function () {
         //init model
         this.models.users = new UserModelCollection;
 
         //TODO test
-        for (var i = 0; i < 100; i++) {
+        for (var i = 0; i < 10; i++) {
             this.models.users.add(new UserModel({
                 id: globalId++,
                 x: utils.getRandomInt(0,CanvasManager.width),
                 y: utils.getRandomInt(0,CanvasManager.height)
             }));
         }
+        //
+        this.meId = this.models.users.at(0).get("id");
 
         //init all views
         this._initViews();
@@ -57,5 +62,16 @@ var GameManager = {
             model: this.models.users
         });
         this.views.canvasView.render();
+    },
+
+    sendNewCoordinates: function(coordinates) {
+        //todo test
+        var me = this.models.users.findWhere({
+            id: this.meId
+        });
+        //send
+        me.set("x",coordinates.x);
+        me.set("y",coordinates.y);
     }
+
 };
