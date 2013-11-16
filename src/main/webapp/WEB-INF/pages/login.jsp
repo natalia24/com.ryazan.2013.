@@ -19,26 +19,26 @@
         <link rel="stylesheet" href="../../styles/main.css">
     </head>
     <body id="linearBg">
-        <div class="login container" id="cent">
+        <div class="login container gradient-top-to-bottom" id="cent">
             <form class="form-horizontal" action="gologin" method="POST">
                 <div class="form-group name">
-                    <h1 class="name">Login</h1>
+                    <h1 class="name">Login PM Quest</h1>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                    <div class="col-sm-3">
+                    <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-8">
                         <input type="text" class="form-control" name="email" placeholder="Email">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                    <div class="col-sm-3">
+                    <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
+                    <div class="col-sm-8">
                         <input type="password" class="form-control" name="password" placeholder="Password">
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-3">
-                        <button type="submit" class="btn btn-default">Sign in</button>
+                    <div class="col-sm-offset-9 col-sm-1">
+                        <button type="submit" class="btn btn-default">Log in</button>
                     </div>
                 </div>
             </form>
