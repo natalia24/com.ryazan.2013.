@@ -31,25 +31,16 @@ var GameManager = {
         //init model
         this.models.users = new UserModelCollection;
 
-        //TODO test
-        for (var i = 0; i < 10; i++) {
-            this.models.users.add(new UserModel({
-                id: globalId++,
-                x: utils.getRandomInt(0,CanvasManager.width),
-                y: utils.getRandomInt(0,CanvasManager.height)
-            }));
-        }
-        //
-        this.meId = this.models.users.at(0).get("id");
+        //todo test
+        this.meId = "4000741400000894543";
 
         //init all views
         this._initViews();
 
         //подписываемся к обновлению с сервером
-        //TODO recomment
-//        setInterval(function () {
-//            this.models.users.fetch({reset: true});
-//        }, this.settings.delay);
+        setInterval($.proxy(function () {
+            this.models.users.fetch({reset: true});
+        },this), this.settings.delay);
     },
 
     _initViews: function () {
@@ -69,6 +60,9 @@ var GameManager = {
         var me = this.models.users.findWhere({
             id: this.meId
         });
+        if (!me || me.length == 0) {
+            return;
+        }
         //send
         me.set("x",coordinates.x);
         me.set("y",coordinates.y);

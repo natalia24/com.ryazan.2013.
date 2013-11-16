@@ -17,24 +17,65 @@ root {
     background: -o-linear-gradient(top, #ffffff 15%,#069 70%,#069 51%,#069 50%);
     background: -ms-linear-gradient(top, #ffffff 15%,#069 70%,#069 51%,#069 50%);
     background: linear-gradient(top, #ffffff 15%,#069 70%,#069 51%,#069 50%);
-    padding: 510px;
+    background-repeat: no-repeat;
+    background-position: 0 300px;
+    /*margin: auto;*/
 }
 
 #cent {
-    position:absolute;
+    width: 600px; 
+    margin: 200px auto;
+    text-align: center;
+    padding: 50px;
+    padding-top: 100px;
+    padding-bottom: 100px;    
+    border-width: 1px;	
+}
+
+.gradient-top-to-bottom {
+    /*width: 300px;
+    //padding: 20px;*/
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #069;
+
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#069));
+    background-image: -webkit-linear-gradient(#fff, #069);
+    background-image: -moz-linear-gradient(#fff, #069),
+        -moz-linear-gradient(#fff, #069);
+    background-image: -o-linear-gradient(#fff, #069),
+        -o-linear-gradient(#fff, #069);
+    background-image: linear-gradient(#fff, #069),
+        linear-gradient(#fff, #069);
+    -moz-background-size:1px 100%;
+    background-size:1px 100%;
+    background-position:0 0, 100% 0;
+    background-repeat:no-repeat;
+}
+    
+    /*margin-left: 30%;*/
+    /*padding-top: 200px;*/
+    /*position:absolute;
     bottom:50%;
     left:50%;
     margin-bottom:-240px; /* this is half the height of your div*/  
-    margin-left:-350px; /*this is half of width of your div*/
-    background-color: #ffffff;
-}
+    /* /*this is half of width of your div*/
+    /*background-color: #fffff;
+}*/
 
-#cent.container {
-    width: 800px !important;
-    height: 600px  !important;
-}
-
-#cent.name {
-    text-align: center;
-    margin: auto;
-}
+    /*#cent.container {
+        width: 800px !important;
+        height: 600px  !important;
+    /*/
+    
+    .name {
+        text-align: center;
+        padding-bottom: 20px;
+        color: #333 !important;
+        font: normal 36px Palatino,Georgia,serif !important;
+        line-height: 100% !important;
+    }
+    
+    body {
+        font: normal 12px Palatino,Georgia,serif !important;
+        line-height: 100% !important;                
+    }
