@@ -17,7 +17,7 @@ public class GameController {
 
     @Autowired
     private MainLogic logic;
-    
+
     @Autowired
     private GameInfo gameInfo;
 
@@ -30,8 +30,13 @@ public class GameController {
     @RequestMapping(value = "/start", method = RequestMethod.GET)
     @ResponseBody
     public void startGame() {
-        logic.initGame();
         logic.startGame();
+    }
+
+    @RequestMapping(value = "/stop", method = RequestMethod.GET)
+    @ResponseBody
+    public void stopGame() {
+        logic.stopGame();
     }
 
     @RequestMapping(value = "/test1", method = RequestMethod.GET)

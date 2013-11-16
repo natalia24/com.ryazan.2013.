@@ -52,11 +52,22 @@ public class MainLogic {
         gameInfo.setStarted(true);
     }
 
+    public void stopGame() {
+        if (gameThread != null) {
+            gameThread.interrupt();
+        }
+    }
+    
     public void step() {
-        System.out.println("================= step!!");
         for (CharacterInfo info : gameInfo.getCaracterList()) {
             info.setX(info.getX() + random.nextInt(20) - 10);
             info.setY(info.getY() + random.nextInt(20) - 10);
+            if (info.getX() < 0) {
+                info.setX(0);
+            }
+            if (info.getY() < 0) {
+                info.setY(0);
+            }
         }
     }
 
