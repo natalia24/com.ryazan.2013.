@@ -42,7 +42,7 @@ public class MainLogic {
             Skill[] skills = upsaRestClient.getEmployeeSkills(info.getId());
             skillById.put(employees[i].getEmployeeId(), skills);
             if (skills != null && skills.length > 0) {
-                requestedTeam.add(skills[0]);
+                requestedTeam.add(skills[(int) (Math.random() * skills.length)]);
             }            
             info.setX(random.nextInt(800));
             info.setY(random.nextInt(600));

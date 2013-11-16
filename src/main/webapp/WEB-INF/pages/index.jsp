@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
     <head>
         <title>Game</title>
@@ -42,11 +44,9 @@
         <div id="team" class="gradient-top-to-bottom" style="margin-top: 30px; margin-left: 15px; background-color: #fff; width: 1000px; height: 200px; float: left">
             <div class="form-group">
                 <label class="control-label" style="margin-left: 25px; color: #069">Requested project teams</label>
-                <c:forEach var="skill" items="${userCtx.requestedTeam}">
-                                              
-                            ${skill} <br> 
-                            
-
+                Project Resource Requests: 
+                <c:forEach var="skill" items="${userCtx.requestedTeam}">                                              
+                            ${skill.skillName} <br> 
                 </c:forEach>
             </div>               
         </div>
