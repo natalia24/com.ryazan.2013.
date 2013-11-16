@@ -41,7 +41,13 @@
         </div>
         <div id="team" class="gradient-top-to-bottom" style="margin-top: 30px; margin-left: 15px; background-color: #fff; width: 1000px; height: 200px; float: left">
             <div class="form-group">
-                <label class="control-label" style="margin-left: 25px; color: #069">Requested project teams</label> 
+                <label class="control-label" style="margin-left: 25px; color: #069">Requested project teams</label>
+                <c:forEach var="skill" items="${userCtx.requestedTeam}">
+                                              
+                            ${skill} <br> 
+                            
+
+                </c:forEach>
             </div>               
         </div>
 

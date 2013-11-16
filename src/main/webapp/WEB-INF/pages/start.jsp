@@ -27,7 +27,7 @@
                                     <input type="text" readonly="true" id="loginField" value="${user.token.additionalInformation.userBean.fullname}"></div>
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-success" >Я готов!</button>
+                                    <button type="button" class="btn btn-primary" >Я готов!</button>
                                 </td>
                             </tr>
                             </c:forEach>
