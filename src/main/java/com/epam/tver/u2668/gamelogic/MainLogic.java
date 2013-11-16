@@ -9,7 +9,6 @@ import com.epam.tver.u2668.upsa.apibeans.Employee;
 import com.epam.tver.u2668.upsa.apibeans.Skill;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,6 +37,7 @@ public class MainLogic {
         List<CharacterInfo> characterList = new ArrayList<>();
         Map<String, Skill[]> skillById = new HashMap<>();
         List<Skill> allSkills = new ArrayList<>();
+        List<Skill> requestedTeam = new ArrayList<>();
         for (int i = 0; (i < employees.length) && (i < 7); i++) {
             CharacterInfo info = new CharacterInfo();
             info.setId(employees[i].getEmployeeId());
@@ -45,6 +45,9 @@ public class MainLogic {
             Skill[] skills = upsaRestClient.getEmployeeSkills(info.getId());
             allSkills.addAll(Arrays.asList(skills));
             skillById.put(employees[i].getEmployeeId(), skills);
+            if (skills != null && skills.length > 0) {
+                requestedTeam.add(skills[(int) (Math.random() * skills.length)]);            
+            }          
             info.setX(random.nextInt(800));
             info.setY(random.nextInt(600));
             characterList.add(info);
