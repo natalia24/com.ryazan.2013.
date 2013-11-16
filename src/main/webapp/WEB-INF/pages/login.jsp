@@ -20,7 +20,7 @@
     </head>
     <body id="linearBg">
         <div class="login container" id="cent">
-            <form class="form-horizontal" action="api/dologin" method="POST">
+            <form class="form-horizontal" action="api/gologin" method="POST">
                 <div class="form-group name">
                     <h1 class="name">Login</h1>
                 </div>
