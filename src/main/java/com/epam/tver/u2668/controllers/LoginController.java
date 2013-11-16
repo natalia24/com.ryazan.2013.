@@ -42,8 +42,8 @@ public class LoginController {
     
     @RequestMapping(value = "/gologin") 
     public String goLogin(String email, String password) {
-        //TokenResponse token = upsaRestClient.getToken(email, password, true);
-        //userContext.setToken(token);
+        TokenResponse token = upsaRestClient.getToken(email, password, true);
+        userContext.setToken(token);
         return "start";
     }
     
