@@ -46,6 +46,8 @@ public class GameController {
 
     @RequestMapping(value = "/test1", method = RequestMethod.GET)
     public ModelAndView testgame() {
-        return new ModelAndView("index", "userCtx", userCtx);
+        ModelAndView modelAndView = new ModelAndView("index", "userCtx", userCtx);
+        modelAndView.addObject("allPMs", gameInfo.getLoggedUsers());
+        return modelAndView;
     }
 }

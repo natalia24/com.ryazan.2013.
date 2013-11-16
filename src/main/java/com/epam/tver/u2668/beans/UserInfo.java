@@ -10,7 +10,7 @@ public class UserInfo {
     private String name;
     private String id;
     private TokenResponse token;
-    private List<Skill> requestedTeam;
+    private List<Skill> requestedTeam = new ArrayList<>();
     private final List<TokenResponse> usersOK = new ArrayList<>();
 
     public String getName() {
