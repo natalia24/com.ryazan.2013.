@@ -1,19 +1,35 @@
 package com.epam.tver.u2668.controllers;
 
+import com.epam.tver.u2668.upsa.UpsaRestClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/")
 public class HomeController {
 
-    @RequestMapping(method = RequestMethod.GET)
+    @Autowired
+    private UpsaRestClient restClient;
+
+    @RequestMapping(value = "skills", method = RequestMethod.GET)
     @ResponseBody
-    public ModelAndView hello() {
-        return new ModelAndView("test", "test", 42);
+    public String skills(@RequestParam String id) {
+        return restClient.getEmployeeSkills(id);
     }
-    
+
+    @RequestMapping(value = "employees", method = RequestMethod.GET)
+    @ResponseBody
+    public String employees(@RequestParam String city) {
+        return restClient.getEmployees(city);
+    }
+
+    @RequestMapping(value = "location", method = RequestMethod.GET)
+    @ResponseBody
+    public String location(@RequestParam String id) {
+        return restClient.getLocation(id);
+    }
 }
