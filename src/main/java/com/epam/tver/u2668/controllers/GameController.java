@@ -1,5 +1,7 @@
 package com.epam.tver.u2668.controllers;
 
+import com.epam.tver.u2668.beans.CharacterInfo;
+import com.epam.tver.u2668.beans.GameInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,11 +18,26 @@ import java.util.List;
 public class GameController {
 
     @Autowired
-    TestService service;
+    private TestService service;
+    
+    @Autowired
+    private GameInfo gameInfo;
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public @ResponseBody List<TestBean> persistenceStatus(Model model) {
         List<TestBean> beans = service.getBeans();
         return beans;
+    }
+    
+    @RequestMapping(value = "/coord", method = RequestMethod.GET)
+    @ResponseBody
+    public List<CharacterInfo> getCoord() {
+        return gameInfo.getCaracterList();
+    }
+    
+    @RequestMapping(value = "/start", method = RequestMethod.GET)
+    @ResponseBody
+    public void startGame() {
+        gameInfo.initGame();
     }
 }
