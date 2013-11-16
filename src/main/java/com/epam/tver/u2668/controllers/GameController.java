@@ -2,6 +2,7 @@ package com.epam.tver.u2668.controllers;
 
 import com.epam.tver.u2668.beans.CharacterInfo;
 import com.epam.tver.u2668.beans.GameInfo;
+import com.epam.tver.u2668.beans.UserContext;
 import com.epam.tver.u2668.gamelogic.MainLogic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,11 +11,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/game")
 public class GameController {
-
+    
+    @Autowired
+    private UserContext userCtx;
+    
     @Autowired
     private MainLogic logic;
 
@@ -40,7 +45,7 @@ public class GameController {
     }
 
     @RequestMapping(value = "/test1", method = RequestMethod.GET)
-    public String testgame() {
-        return "index";
+    public ModelAndView testgame() {
+        return new ModelAndView("index", "userCtx", userCtx);
     }
 }
