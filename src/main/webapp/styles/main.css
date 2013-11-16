@@ -79,3 +79,10 @@ root {
         font: normal 12px Palatino,Georgia,serif !important;
         line-height: 100% !important;                
     }
+    
+progress {  
+    background-color: #09B1D6;  
+    border: 0;  
+    height: 18px;  
+    border-radius: 9px;  
+}  

@@ -40,9 +40,24 @@
             <div class="form-group">
                 <label class="control-label" style="margin-left: 25px; color: #069">Current project teams</label>
                 <div>
-                    <c:forEach var="progectManager" items="${allPMs}">
-                        usersOK:${fn:length(progectManager.usersOK)}
-                        requestedTeam:${fn:length(progectManager.requestedTeam)}
+                    <c:forEach var="progectManager" items="${allPMs}"><br>
+                        <img src="http://pngicon.ru//data/media/3/1303507907_User_Green.png" width="50" height="50"/><label class="control-label" style="margin-left: 15px; ">${progectManager.name}  </label>
+                        <br>
+                        <div style="margin-left: 20px;">
+                        <c:forEach var="i" items="${progectManager.usersOK}">
+                            <img src="http://portpool.ru/content/icons/transparent/en_ligne.png" width="20" height="20"/>
+                        </c:forEach>
+                        </div>    
+                        <br>
+                        <div style="margin-left: 20px;">
+                        <c:forEach var="i" items="${progectManager.requestedTeam}">
+                            <img src="http://pngicon.ru//data/media/3/1303507907_User_Green.png" width="20" height="20"/>
+                        </c:forEach> 
+                        </div>
+                            <br>
+                        <label class="" style="margin-left: 20px; font-size: 12px; font-style: normal">${fn:length(progectManager.usersOK)}  of  ${fn:length(progectManager.requestedTeam)}</label>
+                        <br><br><br><br>
+                        
                         <%--<div class="progress">--%>
                         <%--<div class="progress-bar" role="progressbar" aria-valuenow="${(fn:length(progectManager.usersOK)/fn:length(progectManager.requestedTeam))*100}" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">--%>
                         <%--<span class="sr-only">60% Complete</span>--%>
