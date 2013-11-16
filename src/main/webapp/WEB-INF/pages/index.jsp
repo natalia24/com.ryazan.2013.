@@ -34,7 +34,7 @@
     <h1 class="name">Login PM Quest</h1>
 </div>
 <div id="game-canvas" style="padding-bottom: 2px; background-color: #069; width: 800px; height: 600px; float: left">
-
+        <input id="user-id" type="hidden" value="${userCtx.info.id}">
         </div>
         <div id="rates" class="gradient-top-to-bottom" style="margin-left: 15px; background-color: #fff; width: 200px; height: 600px; float: left">
             <div class="form-group">

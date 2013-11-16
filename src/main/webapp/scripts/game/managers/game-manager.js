@@ -34,8 +34,7 @@ var GameManager = {
         //init model
         this.models.users = new UserModelCollection;
 
-        //todo test
-        this.meId = "4000741400000894543";
+        this.meId = $("#user-id").val();
 
         //init all views
         this._initViews();
@@ -60,16 +59,21 @@ var GameManager = {
     },
 
     sendNewCoordinates: function(coordinates) {
-        //todo test
-        var me = this.models.users.findWhere({
-            id: this.meId
+//        //todo test
+//        var me = this.models.users.findWhere({
+//            id: this.meId
+//        });
+//        if (!me || me.length == 0) {
+//            return;
+//        }
+        $.ajax({
+            type: "POST",
+            url: "coord",
+            data: {
+                x: coordinates.x,
+                y: coordinates.y
+            }
         });
-        if (!me || me.length == 0) {
-            return;
-        }
-        //send
-        me.set("x",coordinates.x);
-        me.set("y",coordinates.y);
     },
 
     getOldUserInfo: function(user) {
