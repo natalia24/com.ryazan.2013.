@@ -42,7 +42,7 @@ public class MainLogic {
         }
         return false;
     }
-    
+
     public void initGame() {
         Employee[] employees = upsaRestClient.getEmployees("ryazan");
         List<CharacterInfo> characterList = new ArrayList<>();

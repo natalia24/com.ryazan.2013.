@@ -11,6 +11,7 @@
     <script src="../../scripts/libs/kinetic.js"></script>
     <script src="../../scripts/libs/underscore.js"></script>
     <script src="../../scripts/libs/backbone.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <!--game script-->
     <script src="../../scripts/game/utils.js"></script>
     <script src="../../scripts/game/managers/canvas-manager.js"></script>
@@ -23,6 +24,8 @@
 
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
 
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
     <!--link rel="stylesheet" type="text/css" href="../../styles/effects.css" /-->
@@ -78,6 +81,13 @@
                     </div>
                 </c:forEach>
             </div>               
+        </div>
+        <button id="question" onclick="test()">question</button>
+
+        <div id="dialog" title="Basic dialog">
+            <p>Знаешь ли ты?</p>
+            <input id="inputquestion" type="text">
+            <button id="sendQuestion" onclick="sendQuestion()">question</button>
         </div>
 
     </body>
