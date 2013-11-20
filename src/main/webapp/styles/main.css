@@ -12,11 +12,11 @@ root {
 
 #linearBg {
     background: #fff;
-    background: -moz-linear-gradient(top, #fffff 15%, #069 70%, #069 51%,#069 50%);
-    background: -webkit-linear-gradient(top, #ffffff 15%,#069 70%,#069 51%,#069 50%);
-    background: -o-linear-gradient(top, #ffffff 15%,#069 70%,#069 51%,#069 50%);
-    background: -ms-linear-gradient(top, #ffffff 15%,#069 70%,#069 51%,#069 50%);
-    background: linear-gradient(top, #ffffff 15%,#069 70%,#069 51%,#069 50%);
+    background: -moz-linear-gradient(#fffff 15%, #069 70%, #069 51%,#069 50%);
+    background: -webkit-linear-gradient(#ffffff 15%,#069 70%,#069 51%,#069 50%);
+    background: -o-linear-gradient(#ffffff 15%,#069 70%,#069 51%,#069 50%);
+    background: -ms-linear-gradient(#ffffff 15%,#069 70%,#069 51%,#069 50%);
+    background: linear-gradient(#ffffff 15%,#069 70%,#069 51%,#069 50%);
     background-repeat: no-repeat;
     background-position: 0 300px;
     /*margin: auto;*/
