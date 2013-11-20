@@ -9,6 +9,17 @@
         <link rel="stylesheet" type="text/css" href="..\..\styles\bootstrap.css">
         <link rel="stylesheet" type="text/css" href="..\..\styles\pre_start.css">
         <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script>
+            function startGame() {
+                $.ajax({
+                    type: "GET",
+                    url: "../game/start" ,
+                    success: function(){
+                        window.location = "../game/test1";
+                    }
+                });
+            }
+        </script>
     </head>
     <body>
         <form>
@@ -27,7 +38,7 @@
                                     <input type="text" readonly="true" id="loginField" value="${user.token.additionalInformation.userBean.fullname}"></div>
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-primary" >Я готов!</button>
+                                    <button type="button" class="btn btn-primary" onclick="startGame()">Я готов!</button>
                                 </td>
                             </tr>
                             </c:forEach>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -57,4 +58,11 @@ public class GameController {
         modelAndView.addObject("allPMs", gameInfo.getLoggedUsers());
         return modelAndView;
     }
+
+    @RequestMapping(value = "/test", method = RequestMethod.POST)
+    @ResponseBody
+    public String test(@RequestParam String id, @RequestParam String skill) {
+        return logic.testUser(id, skill) ? "yes" : "no";
+    }
+
 }

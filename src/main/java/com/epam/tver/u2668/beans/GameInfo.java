@@ -51,4 +51,8 @@ public class GameInfo {
         return loggedUsers;
     }
 
+
+    public Map<String, Skill[]> getSkillById() {
+        return skillById;
+    }
 }
