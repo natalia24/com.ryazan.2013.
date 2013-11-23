@@ -4,7 +4,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <html>
 <head>
-    <title>Game</title>
+    <title>EPAM PM Quest</title>
     <meta charset="UTF-8"/>
     <!--game style-->
     <script src="../../scripts/libs/jquery.js"></script>
