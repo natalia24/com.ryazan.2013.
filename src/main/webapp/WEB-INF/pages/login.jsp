@@ -9,17 +9,18 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Epam PM Game</title>
+        <title>Epam PM Quest</title>
 
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
 
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+        <!--link rel="stylesheet" type="text/css" href="../../styles/effects.css" /-->
         <link rel="stylesheet" href="../../styles/main.css">
     </head>
     <body id="linearBg">
         <div class="login container gradient-top-to-bottom" id="cent">
-            <form class="form-horizontal" method="POST">
+            <form class="form-horizontal" action="gologin" method="POST">
                 <div class="form-group name">
                     <h1 class="name">Login PM Quest</h1>
                 </div>
