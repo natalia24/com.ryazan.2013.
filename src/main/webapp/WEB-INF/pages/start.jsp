@@ -3,18 +3,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Pre-start room.</title>
         <meta charset="UTF-8">
+        <title>Pre-start room.</title>
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" type="text/css" href="..\..\styles\bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="..\..\styles\pre_start.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../styles/pre_start.css">
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script>
             function startGame() {
                 $.ajax({
                     type: "GET",
                     url: "../game/start" ,
-                    success: function(){
+                    success: function() {
                         window.location = "../game/test1";
                     }
                 });

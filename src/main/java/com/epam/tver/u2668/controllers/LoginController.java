@@ -7,6 +7,7 @@ import com.epam.tver.u2668.upsa.apibeans.TokenResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -30,18 +31,13 @@ public class LoginController {
     public ModelAndView persistenceStatus() {
         return new ModelAndView("start", "loggedIn", gameInfo.getLoggedUsers());
     }
-    
-    @RequestMapping(value = "/screen")
-    public String getScreen() {
-        return "epam_screen";
-    }  
-            
-    @RequestMapping(value = "/login_page")
+
+    @RequestMapping(method = RequestMethod.GET)
     public String getLoginPage() {
         return "login";
     }
     
-    @RequestMapping(value = "/gologin") 
+    @RequestMapping(method = RequestMethod.POST)
     public ModelAndView goLogin(String email, String password) {
         TokenResponse token = upsaRestClient.getToken(email, password, true);
         userContext.setToken(token);
