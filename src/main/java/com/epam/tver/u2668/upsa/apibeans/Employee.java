@@ -4,7 +4,7 @@ public class Employee {
 
     private String employeeId;
     private String reporterId;
-    ;private String reporterName;
+    private String reporterName;
     private String managerId;
     private String managerName;
     private String locationId;

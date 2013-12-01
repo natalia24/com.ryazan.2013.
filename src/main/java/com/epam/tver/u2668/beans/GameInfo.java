@@ -39,7 +39,7 @@ public class GameInfo {
         Iterator<UserInfo> iterator = loggedUsers.iterator();
         while (iterator.hasNext()) {
             UserInfo next = iterator.next();
-            if (next.getToken().getAdditionalInformation().getUserBean().getPmcId().equals(response.getToken().getAdditionalInformation().getUserBean().getPmcId())) {
+            if (next.getId().equals(response.getId())) {
                 iterator.remove();
             }
         }

@@ -60,7 +60,7 @@ function toggleShape()
     } else {
         removeClassName(shape, 'cube');
         addClassName(shape, 'ring');
-        eight.innerHTML = "Try"
+        eight.innerHTML = "Try";
         nine.innerHTML = "to play";
         ten.innerHTML = "with";
         eleven.innerHTML = "Epam";

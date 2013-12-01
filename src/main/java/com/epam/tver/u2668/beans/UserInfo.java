@@ -9,7 +9,6 @@ public class UserInfo {
 
     private String name;
     private String id;
-    private TokenResponse token;
     private List<Skill> requestedTeam = new ArrayList<>();
     private final List<TokenResponse> usersOK = new ArrayList<>();
 
@@ -27,14 +26,6 @@ public class UserInfo {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public TokenResponse getToken() {
-        return token;
-    }
-
-    public void setToken(TokenResponse token) {
-        this.token = token;
     }
 
     public List<Skill> getRequestedTeam() {

@@ -6,8 +6,8 @@
         <meta charset="UTF-8">
         <title>EPAM PM Quest</title>
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" type="text/css" href="..\..\styles\bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="..\..\styles\pre_start.css">
+        <link rel="stylesheet" type="text/css" href="../../styles/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="../../styles/pre_start.css">
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script>
             function startGame() {
@@ -35,7 +35,7 @@
                             <c:forEach var="user" items="${loggedIn}">
                             <tr>
                                 <td>                          
-                                    <input type="text" readonly="true" id="loginField" value="${user.token.additionalInformation.userBean.fullname}"></div>
+                                    <input type="text" readonly="true" id="loginField" value="${user.name}"></div>
                                 </td>
                                 <td>
                                     <button type="button" class="btn btn-primary" onclick="startGame()">Я готов!</button>
